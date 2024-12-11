@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class toto {
+public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
