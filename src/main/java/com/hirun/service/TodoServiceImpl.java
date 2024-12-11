@@ -23,7 +23,7 @@ public class TodoServiceImpl implements TodoService{
     }
 
     @Override
-    public void deleteTodo(long id) {
-
+    public void deleteTodo(long id) throws Exception {
+        Todo todo=todoRepository.findById(id).orElseThrow(() -> new Exception("todo do not exist"));
     }
 }
