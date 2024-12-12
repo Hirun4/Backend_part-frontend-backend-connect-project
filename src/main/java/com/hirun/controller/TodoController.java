@@ -1,12 +1,11 @@
 package com.hirun.controller;
 
 
+import com.hirun.model.ApiResponse;
 import com.hirun.model.Todo;
 import com.hirun.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,8 +21,17 @@ public class TodoController {
         return todoService.getAllTodos();
     }
 
-    @GetMapping
+    @PostMapping
     public Todo createTodo(@RequestBody Todo todo){
         return todoService.createTodo(todo);
+    }
+
+    @DeleteMapping("/{id}")
+    public Todo deleteTodo(@PathVariable long id) throws Exception {
+         todoService.deleteTodo(id);
+        ApiResponse res= new ApiResponse();
+        res.setMessage("todo deleted successfully");
+        res.setStatus(true);
+         return null;
     }
 }
