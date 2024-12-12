@@ -16,6 +16,14 @@ public class TodoController {
     private TodoService todoService;
 
 
+    @GetMapping("/api")
+    public ApiResponse homeController(){
+        ApiResponse res= new ApiResponse();
+        res.setMessage("Welcome to todo api");
+        res.setStatus(true);
+        return res;
+    }
+
     @GetMapping("/api/todos")
     public List<Todo>getAllTodos(){
         return todoService.getAllTodos();
