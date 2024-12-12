@@ -16,17 +16,17 @@ public class TodoController {
     private TodoService todoService;
 
 
-    @GetMapping
+    @GetMapping("/api/todos")
     public List<Todo>getAllTodos(){
         return todoService.getAllTodos();
     }
 
-    @PostMapping
+    @PostMapping("/api/todos")
     public Todo createTodo(@RequestBody Todo todo){
         return todoService.createTodo(todo);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/todos/{id}")
     public Todo deleteTodo(@PathVariable long id) throws Exception {
          todoService.deleteTodo(id);
         ApiResponse res= new ApiResponse();
